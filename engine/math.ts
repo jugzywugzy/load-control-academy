@@ -1,6 +1,7 @@
-import { PayloadItem, TrimConfig } from '../types/aviation.types';
+import { TrimConfig } from '../types/aviation.types';
 
-export function calculateTotalCG(emptyWeight: number, emptyArm: number, payloadItems: PayloadItem[]): number {
+// We changed payloadItems to accept any object with weight and arm, rather than strictly a PayloadItem
+export function calculateTotalCG(emptyWeight: number, emptyArm: number, payloadItems: { weight: number; arm: number }[]): number {
   let totalWeight = emptyWeight;
   let totalMoment = emptyWeight * emptyArm;
 
